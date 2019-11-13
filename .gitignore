@@ -1,0 +1,28 @@
+#Ignore Windows Thumbnails
+Thumbs.db
+
+#Ignore Visual Studio Files
+*.obj
+*.pdb
+*.user
+*.aps
+*.pch
+*.vspscc
+*_i.c
+*_p.c
+*.ncb
+*.suo
+*.tlb
+*.tlh
+*.bak
+*.cache
+*.ilk
+*.log
+[Bb]in
+[Dd]ebug*/
+*.lib
+*.sbr
+.vs/
+obj/
+[Rr]elease*/
+_ReSharper*/
