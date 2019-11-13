@@ -6,7 +6,11 @@ namespace IoC.SampleApp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var bootstrapper = new Bootstrapper();
+            bootstrapper.Install();
+            bootstrapper.Start();
+            
+            Console.WriteLine("App is running!");
         }
     }
 }
