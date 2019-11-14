@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.902
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IoC.SampleApp", "IoC.SampleApp\IoC.SampleApp.csproj", "{FAFBF92A-3EB8-444E-98AE-AFAD3E0C1081}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IoC.SampleApp", "IoC.SampleApp\IoC.SampleApp.csproj", "{FAFBF92A-3EB8-444E-98AE-AFAD3E0C1081}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.IoC.SampleApp", "Test.IoC.SampleApp\Test.IoC.SampleApp.csproj", "{039DCBB0-BB10-4681-81CB-A7F48FA57603}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{FAFBF92A-3EB8-444E-98AE-AFAD3E0C1081}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FAFBF92A-3EB8-444E-98AE-AFAD3E0C1081}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FAFBF92A-3EB8-444E-98AE-AFAD3E0C1081}.Release|Any CPU.Build.0 = Release|Any CPU
+		{039DCBB0-BB10-4681-81CB-A7F48FA57603}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{039DCBB0-BB10-4681-81CB-A7F48FA57603}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{039DCBB0-BB10-4681-81CB-A7F48FA57603}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{039DCBB0-BB10-4681-81CB-A7F48FA57603}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
