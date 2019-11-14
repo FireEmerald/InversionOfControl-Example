@@ -1,4 +1,7 @@
-﻿using Castle.Core.Internal;
+﻿using System.Collections.Generic;
+using System.Linq;
+using Castle.Core.Internal;
+using IoC.SampleApp.OnlineService.Routes;
 using IoC.SampleApp.OnlineService.WebClient;
 
 namespace IoC.SampleApp.OnlineService
@@ -8,10 +11,12 @@ namespace IoC.SampleApp.OnlineService
         private const string API_ENDPOINT = "https://example.com/api/v2";
 
         private readonly IWebClient WebClient;
+        private readonly IList<IRoute> Routes;
 
-        public ApiAdapter(IWebClient webClient)
+        public ApiAdapter(IWebClient webClient, IList<IRoute> routes)
         {
             WebClient = webClient;
+            Routes = routes;
         }
 
         public ApiStatus GetServiceStatus()
@@ -19,7 +24,9 @@ namespace IoC.SampleApp.OnlineService
             if (AuthenticationFailed())
                 return ApiStatus.ClientError;
 
-            return WebClient.Request(API_ENDPOINT + "/getStatus").IsNullOrEmpty() ? ApiStatus.ServerError : ApiStatus.Ok;
+            IRoute route = Routes.Single(r => r.IsMatching("status"));
+
+            return WebClient.Request(API_ENDPOINT + route.GetRoute).IsNullOrEmpty() ? ApiStatus.ServerError : ApiStatus.Ok;
         }
 
         /// <summary>
@@ -27,7 +34,9 @@ namespace IoC.SampleApp.OnlineService
         /// </summary>
         private bool AuthenticationFailed()
         {
-            return WebClient.Request(API_ENDPOINT + "/auth").IsNullOrEmpty();
+            IRoute route = Routes.Single(r => r.IsMatching("auth"));
+
+            return WebClient.Request(API_ENDPOINT + route.GetRoute).IsNullOrEmpty();
         }
     }
 }
