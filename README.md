@@ -1,6 +1,13 @@
 # The power of IoC - Inversion Of Control
 Sample usage of the IoC Framework Castle Windsor, UnitTesting and Mocks
 
+## Is this something for me?
+This project is intended for students or other people whom:
+- Are **familiar** with C# or a similar programming language.
+- Have a **basic knowledge** of _UnitTests_ (Assert.That(y == x)).
+- Eventually **don't know** what a _Mock_ is.
+- **Never** heared something of _Inversion of Control_ nor _Dependency Injection_.
+
 ## Frameworks:
 
 | Component | Name | Version | Note |
