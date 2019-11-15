@@ -9,7 +9,7 @@ namespace IoC.SampleApp
 {
     public class Bootstrapper
     {
-        public readonly IWindsorContainer Container;
+        private readonly IWindsorContainer Container;
 
         public Bootstrapper()
         {
