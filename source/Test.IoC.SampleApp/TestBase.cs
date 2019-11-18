@@ -17,6 +17,11 @@ namespace Test.IoC.SampleApp
 
             MockContainer.Kernel.Resolver.AddSubResolver(new CollectionResolver(MockContainer.Kernel));
 
+            Install();
+        }
+
+        private void Install()
+        {
             // Priority: In case there are 2+ components registered for a service, the first one has priority
             // -> First all installers of the test project and then of the application itself
             MockContainer.Install(FromAssembly.InThisApplication(Assembly.GetExecutingAssembly()));
