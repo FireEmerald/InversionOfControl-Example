@@ -19,7 +19,7 @@ namespace Test.IoC.SampleApp.OnlineService
 
         [TestCase(ApiStatus.Ok, "{ status: success }")]
         [TestCase(ApiStatus.ClientError, "")]
-        public void Test__WebClient__GetServiceStatus(ApiStatus expectedStatus, string url)
+        public void Test__ApiAdapter__GetServiceStatus(ApiStatus expectedStatus, string url)
         {
             // Arrange
             var mockWebClient = new Mock<IWebClient>();
