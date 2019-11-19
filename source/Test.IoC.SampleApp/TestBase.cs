@@ -9,13 +9,13 @@ namespace Test.IoC.SampleApp
 {
     public class TestBase
     {
-        private readonly WindsorContainer MockContainer;
+        private readonly WindsorContainer TestContainer;
 
         public TestBase()
         {
-            MockContainer = new WindsorContainer();
+            TestContainer = new WindsorContainer();
 
-            MockContainer.Kernel.Resolver.AddSubResolver(new CollectionResolver(MockContainer.Kernel));
+            TestContainer.Kernel.Resolver.AddSubResolver(new CollectionResolver(TestContainer.Kernel));
 
             Install();
         }
@@ -24,8 +24,10 @@ namespace Test.IoC.SampleApp
         {
             // Priority: In case there are 2+ components registered for a service, the first one has priority
             // -> First all installers of the test project and then of the application itself
-            MockContainer.Install(FromAssembly.InThisApplication(Assembly.GetExecutingAssembly()));
-            MockContainer.Install(FromAssembly.Named($"{nameof(IoC)}.{nameof(SampleApp)}"));
+            TestContainer.Install(
+                FromAssembly.InThisApplication(Assembly.GetExecutingAssembly()),
+                FromAssembly.Named($"{nameof(IoC)}.{nameof(SampleApp)}")
+            );
         }
 
         /// <summary>
@@ -33,7 +35,7 @@ namespace Test.IoC.SampleApp
         /// </summary>
         public T Resolve<T>()
         {
-            return MockContainer.Resolve<T>();
+            return TestContainer.Resolve<T>();
         }
 
         /// <summary>
@@ -41,7 +43,7 @@ namespace Test.IoC.SampleApp
         /// </summary>
         public void RegisterMockOf<T>(Mock<T> mock) where T : class
         {
-            MockContainer.Register(
+            TestContainer.Register(
                 Component.For<T>().Instance(mock.Object)
                 .IsDefault() // Force the later-registered component to become the default instance
             );
