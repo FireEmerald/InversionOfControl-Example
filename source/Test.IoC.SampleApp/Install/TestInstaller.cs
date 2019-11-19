@@ -7,7 +7,7 @@ using IoC.SampleApp.OnlineService.WebClient;
 
 namespace Test.IoC.SampleApp.Install
 {
-    public class Installer : IWindsorInstaller
+    public class TestInstaller : IWindsorInstaller
     {
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {
@@ -27,7 +27,7 @@ namespace Test.IoC.SampleApp.Install
                 // Component.For<IApiAdapter>().ImplementedBy<DummyApiAdapter>()
             );
 
-            Debug.WriteLine($"{nameof(Test)}.{nameof(Installer)} registered it's components");
+            Debug.WriteLine($"{nameof(Test)}.{nameof(TestInstaller)} registered it's components");
         }
     }
 }
