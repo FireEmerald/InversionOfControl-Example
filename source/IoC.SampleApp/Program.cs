@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace IoC.SampleApp
 {
@@ -10,7 +11,8 @@ namespace IoC.SampleApp
             bootstrapper.Install();
             bootstrapper.Start();
             
-            Console.WriteLine("App is running!");
+            Debug.WriteLine("App is running!");
+            Console.ReadKey();
         }
     }
 }

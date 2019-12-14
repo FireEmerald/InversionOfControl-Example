@@ -1,4 +1,5 @@
-﻿using IoC.SampleApp.OnlineService;
+﻿using System;
+using IoC.SampleApp.OnlineService;
 using IoC.SampleApp.ViewModel;
 
 namespace IoC.SampleApp
@@ -16,10 +17,10 @@ namespace IoC.SampleApp
 
         public void Fly()
         {
-            //  ^ ^
-            // (O,O)
-            // (   )
-            // -"-"---
+            Console.WriteLine("   ^ ^");
+            Console.WriteLine("  (O,O)");
+            Console.WriteLine("  (   )");
+            Console.WriteLine("  -\"-\"---");
         }
     }
 }
