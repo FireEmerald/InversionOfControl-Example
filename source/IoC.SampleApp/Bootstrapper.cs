@@ -1,6 +1,4 @@
 ﻿using System.Reflection;
-using Castle.Core.Logging;
-using Castle.MicroKernel;
 using Castle.MicroKernel.Resolvers.SpecializedResolvers;
 using Castle.Windsor;
 using Castle.Windsor.Installer;

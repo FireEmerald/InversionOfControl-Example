@@ -17,13 +17,13 @@ namespace Test.IoC.SampleApp.OnlineService
             TestBase = new TestBase();
         }
 
-        [TestCase(ApiStatus.Ok, "{ status: success }")]
-        [TestCase(ApiStatus.ClientError, "")]
-        public void Test__ApiAdapter__GetServiceStatus(ApiStatus expectedStatus, string url)
+        [TestCase("{ status: success }", ApiStatus.Ok)]
+        [TestCase("", ApiStatus.ClientError)]
+        public void Test__ApiAdapter__GetServiceStatus(string returnedStatus, ApiStatus expectedStatus)
         {
             // Arrange
             var mockWebClient = new Mock<IWebClient>();
-            mockWebClient.Setup(x => x.Request(It.IsAny<string>())).Returns(url);
+            mockWebClient.Setup(client => client.Request(It.IsAny<string>())).Returns(returnedStatus);
             TestBase.RegisterMockOf(mockWebClient);
 
             var apiAdapter = TestBase.Resolve<IApiAdapter>();
